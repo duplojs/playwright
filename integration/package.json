@@ -1,0 +1,6 @@
+{
+  "name": "integration",
+  "dependencies": {
+    "@duplojs/playwright": "file:.."
+  }
+}
