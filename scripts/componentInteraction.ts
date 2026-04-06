@@ -18,17 +18,16 @@ interface MissingComponentElementErrorParams {
 	availableElements: string[];
 }
 
-const missingComponentElementErrorKind = createDuplojsPlaywrightKind<
-	"missing-component-element-error",
-	MissingComponentElementErrorParams
->("missing-component-element-error");
+const missingComponentElementErrorKind = createDuplojsPlaywrightKind("missing-component-element-error");
 
 export class MissingComponentElementError extends kindHeritage(
 	"missing-component-element-error",
 	missingComponentElementErrorKind,
 	Error,
 ) {
-	public constructor(params: MissingComponentElementErrorParams) {
+	public constructor(
+		public params: MissingComponentElementErrorParams,
+	) {
 		super(
 			{
 				[missingComponentElementErrorKind.definition.name]: params,

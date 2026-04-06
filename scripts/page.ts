@@ -25,12 +25,11 @@ type InferPagePathParams<
 		? Parameters<GenericMakePath>[0]
 		: never;
 
-export type Page<
-	GenericName extends string = string,
-	GenericPathParams extends Record<string, unknown> = Record<string, unknown>,
-	GenericElement extends ComponentElements | undefined = ComponentElements | undefined,
-	GenericMethods extends ComponentMethods | undefined = undefined,
-	GenericComponent extends ComponentEngine = never,
+type _Page<
+	GenericName extends string,
+	GenericElement extends ComponentElements | undefined,
+	GenericMethods extends ComponentMethods | undefined,
+	GenericComponent extends ComponentEngine,
 > = (
 	& Component<
 		GenericName,
@@ -39,14 +38,26 @@ export type Page<
 		GenericComponent
 	>
 	& Kind<typeof pageKind.definition, GenericName>
-	& {
-		makePath(
-			...args: IsEqual<GenericPathParams, Record<string, unknown>> extends true
-				? []
-				: [params: GenericPathParams]
-		): string;
-	}
 );
+
+export interface Page<
+	GenericName extends string = string,
+	GenericPathParams extends Record<string, unknown> = Record<string, unknown>,
+	GenericElement extends ComponentElements | undefined = ComponentElements | undefined,
+	GenericMethods extends ComponentMethods | undefined = undefined,
+	GenericComponent extends ComponentEngine = never,
+> extends _Page<
+		GenericName,
+		GenericElement,
+		GenericMethods,
+		GenericComponent
+	> {
+	makePath(
+		...args: {} extends GenericPathParams
+			? [params?: GenericPathParams]
+			: [params: GenericPathParams]
+	): string;
+}
 
 export function createPage<
 	GenericName extends string,
