@@ -26,12 +26,12 @@ export default [
 		ignores: ["**/*.test.ts", "**/*.bench.ts", "test/**/*.ts", "**/*.d.ts"],
 	},
 	{
-		files: ["jsDoc/**/*.ts"],
+		files: ["jsDoc/**/*.ts", "docs/examples/**/*.ts"],
 		rules: {
 			"@stylistic/js/line-comment-position": "off",
 		},
 	},
 	{
-		ignores: ["coverage", "dist"]
+		ignores: ["coverage", "dist", "docs/public/*", "docs/.vitepress/cache/*", "docs/.vitepress/dist/*"]
 	}
 ];

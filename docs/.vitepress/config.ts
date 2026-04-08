@@ -157,7 +157,36 @@ export default defineConfig({
 					},
 					{
 						text: "API",
-						link: "/fr/v0/api/",
+						items: [
+							{
+								text: "Overview",
+								link: "/fr/v0/api/",
+							},
+							{
+								text: "Website",
+								link: "/fr/v0/api/website",
+							},
+							{
+								text: "Component",
+								link: "/fr/v0/api/component",
+							},
+							{
+								text: "Component Interaction",
+								link: "/fr/v0/api/componentInteraction",
+							},
+							{
+								text: "Page",
+								link: "/fr/v0/api/page",
+							},
+							{
+								text: "Actions",
+								link: "/fr/v0/api/actions",
+							},
+							{
+								text: "Assertions",
+								link: "/fr/v0/api/assertions",
+							},
+						],
 					},
 					{
 						text: "v0.x (LTS)",
@@ -214,7 +243,36 @@ export default defineConfig({
 					},
 					{
 						text: "API",
-						link: "/en/v0/api/",
+						items: [
+							{
+								text: "Overview",
+								link: "/en/v0/api/",
+							},
+							{
+								text: "Website",
+								link: "/en/v0/api/website",
+							},
+							{
+								text: "Component",
+								link: "/en/v0/api/component",
+							},
+							{
+								text: "Component Interaction",
+								link: "/en/v0/api/componentInteraction",
+							},
+							{
+								text: "Page",
+								link: "/en/v0/api/page",
+							},
+							{
+								text: "Actions",
+								link: "/en/v0/api/actions",
+							},
+							{
+								text: "Assertions",
+								link: "/en/v0/api/assertions",
+							},
+						],
 					},
 					{
 						text: "v0.x (LTS)",
