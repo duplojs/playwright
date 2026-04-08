@@ -41,6 +41,10 @@ export class MissingComponentElementError extends kindHeritage(
 		);
 	}
 }
+
+/**
+ * {@include createComponentInteraction/index.md}
+ */
 export function createComponentInteraction<
 	GenericStepEmbeddedFunction extends StepEmbeddedFunction,
 >(
@@ -83,6 +87,9 @@ export function createComponentInteraction<
 
 export type WrapperStepEmbeddedFunction = Record<string, ReturnType<typeof createComponentInteraction>>;
 
+/**
+ * {@include createStepWrapper/index.md}
+ */
 export function createStepWrapper<
 	GenericWrapperStepEmbeddedFunction extends WrapperStepEmbeddedFunction,
 >(

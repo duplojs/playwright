@@ -68,6 +68,9 @@ export interface CreateWebsiteParams {
 	hooks?: WebsiteHooks;
 }
 
+/**
+ * {@include createWebsite/index.md}
+ */
 export function createWebsite(params: CreateWebsiteParams) {
 	let prefix = params.envConfig.prefix;
 

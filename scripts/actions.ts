@@ -2,7 +2,14 @@ import { createComponentInteraction, createStepWrapper } from "./componentIntera
 import { Assertions } from "./assertions";
 import { expect, type Locator as PlaywrightLocator } from "playwright/test";
 
+/**
+ * {@include actions/index.md}
+ */
 export namespace Actions {
+
+	/**
+	 * {@include actions/click/index.md}
+	 */
 	export const click = createComponentInteraction(
 		"$component: I click on $element.",
 		async({ element, elementKey, component }) => {
@@ -12,11 +19,17 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/forceClick/index.md}
+	 */
 	export const forceClick = createComponentInteraction(
 		"$component: I force click on $element.",
 		({ element }) => element.click({ force: true }),
 	);
 
+	/**
+	 * {@include actions/hover/index.md}
+	 */
 	export const hover = createComponentInteraction(
 		"$component: I hover $element.",
 		async({ element, elementKey, component }) => {
@@ -26,6 +39,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/focus/index.md}
+	 */
 	export const focus = createComponentInteraction(
 		"$component: I focus $element.",
 		async({ element, elementKey, component }) => {
@@ -35,6 +51,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/fill/index.md}
+	 */
 	export const fill = createComponentInteraction(
 		"$component: I fill on $element.",
 		async({ element, elementKey, component }, content: string) => {
@@ -44,6 +63,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/type/index.md}
+	 */
 	export const type = createComponentInteraction(
 		"$component: I type on $element.",
 		async(
@@ -57,6 +79,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/clear/index.md}
+	 */
 	export const clear = createComponentInteraction(
 		"$component: I clear $element.",
 		async({ element, elementKey, component }) => {
@@ -66,6 +91,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/press/index.md}
+	 */
 	export const press = createComponentInteraction(
 		"$component: I press on $element.",
 		async({ element, elementKey, component }, key: string) => {
@@ -75,6 +103,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/check/index.md}
+	 */
 	export const check = createComponentInteraction(
 		"$component: I check $element.",
 		async({ element, elementKey, component }) => {
@@ -84,6 +115,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/uncheck/index.md}
+	 */
 	export const uncheck = createComponentInteraction(
 		"$component: I uncheck $element.",
 		async({ element, elementKey, component }) => {
@@ -93,6 +127,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/selectOption/index.md}
+	 */
 	export const selectOption = createComponentInteraction(
 		"$component: I select option on $element.",
 		async(
@@ -105,6 +142,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/dragTo/index.md}
+	 */
 	export const dragTo = createComponentInteraction(
 		"$component: I drag $element to target.",
 		async(
@@ -119,6 +159,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/extractContent/index.md}
+	 */
 	export const extractContent = createComponentInteraction(
 		"$component: I extract content of $element.",
 		async({ element, component, elementKey }) => {
@@ -128,6 +171,9 @@ export namespace Actions {
 		},
 	);
 
+	/**
+	 * {@include actions/withStep/index.md}
+	 */
 	export const withStep = createStepWrapper({
 		click,
 		forceClick,

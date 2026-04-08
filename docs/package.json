@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "type": "module",
+   "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "test:types": "tsc -p tsconfig.app.json && tsc -p tsconfig.v0.json"
+  },
+  "devDependencies": {
+    "@shikijs/vitepress-twoslash": "3.21.0",
+    "@vue/tsconfig": "0.8.1",
+    "vitepress": "^2.0.0-alpha.15",
+    "vitepress-plugin-group-icons": "1.7.1",
+    "vue": "3.5.27"
+  }
+}

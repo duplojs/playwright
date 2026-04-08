@@ -1,5 +1,5 @@
 import type { Locator as PlaywrightLocator } from "playwright/test";
-import type { IsEqual, Kind } from "@duplojs/utils";
+import type { Kind } from "@duplojs/utils";
 import { type ComponentEngine, type ComponentMethods, type GetComponentMethodsParams, type GetComponentElementsParams, type GetComponentMainElementParams, createComponent, type ComponentElements, type Component } from "./component";
 import type { Website } from "./website";
 import { createDuplojsPlaywrightKind } from "./kind";
@@ -59,6 +59,9 @@ export interface Page<
 	): string;
 }
 
+/**
+ * {@include createPage/index.md}
+ */
 export function createPage<
 	GenericName extends string,
 	GenericMakePath extends(...args: any[]) => string,

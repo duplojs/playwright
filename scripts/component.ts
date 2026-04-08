@@ -56,6 +56,9 @@ export interface GetComponentMethodsParams<
 	website: Website;
 }
 
+/**
+ * {@include createComponent/index.md}
+ */
 export function createComponent<
 	GenericName extends string,
 	GenericElements extends ComponentElements | undefined = undefined,
