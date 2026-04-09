@@ -1,7 +1,7 @@
 import { createComponent, createWebsite } from "@duplojs/playwright";
 import test from "playwright/test";
 
-test("search form component", async({ page, context }) => {
+test("component example", async({ page, context }) => {
 	const website = createWebsite({
 		playwrightPage: page,
 		playwrightBrowserContext: context,

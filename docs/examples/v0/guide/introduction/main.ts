@@ -1,11 +1,11 @@
 import { createPage, createWebsite } from "@duplojs/playwright";
 import test from "playwright/test";
 
-const dashboardPage = createPage(
-	"dashboard",
+const homePage = createPage(
+	"home",
 	{
 		makePath() {
-			return "/dashboard";
+			return "/";
 		},
 		getMainElement({ body }) {
 			return body.locator("main");
@@ -13,21 +13,16 @@ const dashboardPage = createPage(
 	},
 );
 
-test("dashboard works", async({ page, context }) => {
+test("home page example", async({ page, context }) => {
 	// [!code highlight:8]
 	const website = createWebsite({
 		playwrightPage: page,
 		playwrightBrowserContext: context,
 		envConfig: {
 			baseUrl: "https://example.com",
-			prefix: "admin",
 		},
 	});
 
-	// [!code highlight:5]
-	const dashboard = await website.iNavigateTo(dashboardPage);
-
-	await website.iExpectTitleIs("Dashboard");
-	await website.iWantToBeOnPage(dashboardPage);
-	await dashboard.mainElement.isVisible();
+	// [!code highlight:1]
+	await website.iNavigateTo(homePage);
 });

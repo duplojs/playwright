@@ -19,7 +19,6 @@
 		"source.fixAll.eslint": "explicit"
 	},
 	
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"typescript.updateImportsOnFileMove.enabled": "prompt",
-  	"javascript.updateImportsOnFileMove.enabled": "prompt"
+	"js/ts.tsdk.path": "node_modules/typescript/lib",
+	"js/ts.updateImportsOnFileMove.enabled": "prompt"
 }

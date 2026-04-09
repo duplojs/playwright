@@ -122,7 +122,7 @@ export default defineConfig({
 				},
 			}),
 		],
-		languages: ["js", "jsx", "ts", "tsx"],
+		languages: ["js", "jsx", "ts", "tsx", "bash", "json", "yaml", "yml"],
 	},
 	vite: {
 		plugins: [groupIconVitePlugin()],
@@ -145,7 +145,7 @@ export default defineConfig({
 	},
 	locales: {
 		fr: {
-			description: "",
+			description: "Surcouche Playwright pour structurer des tests autour d'un Website, de Pages et de Components réutilisables.",
 			label: "Français",
 			lang: "fr",
 			link: "/fr/",
@@ -201,7 +201,7 @@ export default defineConfig({
 				sidebar: {
 					"/fr/v0/guide/": [
 						{
-							text: "Commencer",
+							text: "Guide",
 							items: [
 								{
 									text: "Introduction",
@@ -210,6 +210,31 @@ export default defineConfig({
 								{
 									text: "Démarrage rapide",
 									link: "/fr/v0/guide/quickStart",
+								},
+								{
+									text: "Structurer ses tests",
+									link: "/fr/v0/guide/structure",
+								},
+								{
+									text: "Penser en specs",
+									link: "/fr/v0/guide/specs",
+								},
+								{
+									text: "Créer des helpers métier",
+									link: "/fr/v0/guide/helpers",
+								},
+								{
+									text: "CI/CD",
+									items: [
+										{
+											text: "GitHub Actions",
+											link: "/fr/v0/guide/ci/githubActions",
+										},
+										{
+											text: "GitLab CI",
+											link: "/fr/v0/guide/ci/gitlabCI",
+										},
+									],
 								},
 							],
 						},
@@ -231,7 +256,7 @@ export default defineConfig({
 			},
 		},
 		root: {
-			description: "",
+			description: "A Playwright layer for structuring tests around a reusable Website, Pages, and Components.",
 			label: "English",
 			lang: "en",
 			link: "/en/",

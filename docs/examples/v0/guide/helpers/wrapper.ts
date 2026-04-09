@@ -7,7 +7,7 @@ const submitSearch = createComponentInteraction(
 	},
 );
 
-// [!code highlight:4]
+// [!code highlight:8]
 const searchStep = createStepWrapper({
 	fillQuery: Actions.fill,
 	submit: submitSearch,
@@ -15,6 +15,5 @@ const searchStep = createStepWrapper({
 
 declare const component: Parameters<typeof submitSearch>[0];
 
-// [!code highlight:2]
 await searchStep("search flow").fillQuery(component, "query", "duplojs");
 await searchStep("search flow").submit(component, "submit");
