@@ -38,7 +38,7 @@ export interface CreateWebsiteParams {
  * 
  * `createWebsite(params)` binds a Playwright `Page`, a `BrowserContext`, environment configuration, and optional hooks into one reusable test object.
  * 
- * Use it as the main entry point of an integration-style test flow.
+ * Create it inside `test.extend(...)`, then consume it as an injected fixture in test callbacks.
  * 
  * - `params.playwrightPage` is the active Playwright page used for navigation and expectations.
  * - `params.playwrightBrowserContext` is the browser context used for helpers such as cookie injection.
@@ -49,20 +49,42 @@ export interface CreateWebsiteParams {
  * The returned website object exposes navigation helpers, page/component assertions, browser helpers, and prefix-aware URL building.
  * 
  * ```ts
- * const website = createWebsite({
- * 	playwrightPage,
- * 	playwrightBrowserContext,
- * 	envConfig: {
- * 		baseUrl: "https://example.com",
- * 		prefix: "admin",
+ * import { createPage, createWebsite, type Website } from ".";
+ * import test from "playwright/test";
+ * 
+ * interface TestFixtures {
+ * 	website: Website;
+ * }
+ * 
+ * const testClient = test.extend<TestFixtures>({
+ * 	async website({ page, context }, use) {
+ * 		const website = createWebsite({
+ * 			playwrightPage: page,
+ * 			playwrightBrowserContext: context,
+ * 			envConfig: {
+ * 				baseUrl: "https://example.com",
+ * 				prefix: "admin",
+ * 			},
+ * 		});
+ * 
+ * 		await use(website);
  * 	},
  * });
  * 
- * const dashboard = await website.iNavigateTo(dashboardPage);
+ * const dashboardPage = createPage(
+ * 	"dashboard",
+ * 	{
+ * 		makePath() {
+ * 			return "/dashboard";
+ * 		},
+ * 		getMainElement({ body }) {
+ * 			return body.locator("main");
+ * 		},
+ * 	},
+ * );
  * 
- * await website.iExpectUrlIs("https://example.com/admin/dashboard");
- * await website.iWantToBeOnPage(dashboardPage);
- * await dashboard.mainElement.isVisible();
+ * testClient("opens the dashboard", async({ website }) => {
+ * 	const dashboard = await website.iNavigateTo(dashboardPage);
  * ```
  * 
  * @remarks
