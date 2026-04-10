@@ -1,5 +1,25 @@
-import { createPage, createWebsite } from "@scripts";
+import { createPage, createWebsite, type Website } from "@scripts";
 import { type BrowserContext as PlaywrightBrowserContext, type Page as PlaywrightPage } from "playwright/test";
+import { test as base } from "playwright/test";
+
+interface TestFixtures {
+	website: Website;
+}
+
+const test = base.extend<TestFixtures>({
+	async website({ page, context }, use) {
+		const website = createWebsite({
+			playwrightPage: page,
+			playwrightBrowserContext: context,
+			envConfig: {
+				baseUrl: "https://example.com",
+				prefix: "admin",
+			},
+		});
+
+		await use(website);
+	},
+});
 
 const dashboardPage = createPage(
 	"dashboard",
@@ -15,18 +35,13 @@ const dashboardPage = createPage(
 
 declare const playwrightPage: PlaywrightPage;
 declare const playwrightBrowserContext: PlaywrightBrowserContext;
+void playwrightPage;
+void playwrightBrowserContext;
 
-const website = createWebsite({
-	playwrightPage,
-	playwrightBrowserContext,
-	envConfig: {
-		baseUrl: "https://example.com",
-		prefix: "admin",
-	},
+test("opens the dashboard", async({ website }) => {
+	const dashboard = await website.iNavigateTo(dashboardPage);
+
+	await website.iExpectUrlIs("https://example.com/admin/dashboard");
+	await website.iWantToBeOnPage(dashboardPage);
+	await dashboard.mainElement.isVisible();
 });
-
-const dashboard = await website.iNavigateTo(dashboardPage);
-
-await website.iExpectUrlIs("https://example.com/admin/dashboard");
-await website.iWantToBeOnPage(dashboardPage);
-await dashboard.mainElement.isVisible();

@@ -212,18 +212,6 @@ export default defineConfig({
 									link: "/fr/v0/guide/quickStart",
 								},
 								{
-									text: "Structurer ses tests",
-									link: "/fr/v0/guide/structure",
-								},
-								{
-									text: "Penser en specs",
-									link: "/fr/v0/guide/specs",
-								},
-								{
-									text: "Créer des helpers métier",
-									link: "/fr/v0/guide/helpers",
-								},
-								{
 									text: "CI/CD",
 									items: [
 										{
@@ -321,6 +309,19 @@ export default defineConfig({
 								{
 									text: "Quick Start",
 									link: "/en/v0/guide/quickStart",
+								},
+								{
+									text: "CI/CD",
+									items: [
+										{
+											text: "GitHub Actions",
+											link: "/fr/v0/guide/ci/githubActions",
+										},
+										{
+											text: "GitLab CI",
+											link: "/fr/v0/guide/ci/gitlabCI",
+										},
+									],
 								},
 							],
 						},

@@ -2,10 +2,10 @@
 outline: [2, 3]
 prev:
   text: "Component"
-  link: "/fr/v0/api/component/"
+  link: "/fr/v0/api/component"
 next:
   text: "Page"
-  link: "/fr/v0/api/page/"
+  link: "/fr/v0/api/page"
 description: "Créer des interactions réutilisables sur les éléments d'un composant et les regrouper dans des étapes Playwright."
 ---
 
@@ -70,6 +70,6 @@ Il permet de regrouper plusieurs appels sous un même intitulé métier dans le 
 
 ## Voir aussi
 
-- [`Component`](/fr/v0/api/component/) - pour définir les éléments ciblés par ces interactions.
-- [`Actions`](/fr/v0/api/actions/) - pour les interactions prêtes à l'emploi construites sur ce modèle.
-- [`Assertions`](/fr/v0/api/assertions/) - pour les vérifications prêtes à l'emploi construites sur ce modèle.
+- [`Component`](/fr/v0/api/component) - pour définir les éléments ciblés par ces interactions.
+- [`Actions`](/fr/v0/api/actions) - pour les interactions prêtes à l'emploi construites sur ce modèle.
+- [`Assertions`](/fr/v0/api/assertions) - pour les vérifications prêtes à l'emploi construites sur ce modèle.

@@ -4,8 +4,8 @@ prev:
   text: "Introduction"
   link: "/fr/v0/guide/"
 next:
-  text: "Structurer ses tests"
-  link: "/fr/v0/guide/structure/"
+  text: "GitHub Actions"
+  link: "/fr/v0/guide/ci/githubActions/"
 description: "Installer @duplojs/playwright, configurer Playwright et écrire un premier test."
 ---
 
@@ -76,8 +76,9 @@ Ici, la config reste minimale : Chromium, peu de workers en CI, et quelques arte
 <!--@include: @/examples/v0/guide/quickStart/firstTest.ts-->
 ```
 ::: tip Ce qui se passe ici
-- le test crée un [`Website`](/fr/v0/api/website)
+- le client Playwright étendu crée un [`Website`](/fr/v0/api/website)
 - il décrit une [`Page`](/fr/v0/api/page)
+- le test récupère `website` depuis ce client
 - puis il navigue vers cette page via `website.iNavigateTo(...)`
 - enfin, il applique une assertion simple
 :::

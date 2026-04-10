@@ -3,7 +3,7 @@ outline: [2, 3]
 description: "Référence API de @duplojs/playwright."
 next:
   text: "Website"
-  link: "/fr/v0/api/website/"
+  link: "/fr/v0/api/website"
 ---
 
 # Référence API

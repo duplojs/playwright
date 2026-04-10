@@ -1,8 +1,8 @@
 ---
 outline: [2, 3]
 prev:
-  text: "Créer des helpers métier"
-  link: "/fr/v0/guide/helpers/"
+  text: "Démarrage rapide"
+  link: "/fr/v0/guide/quickStart/"
 next:
   text: "GitLab CI"
   link: "/fr/v0/guide/ci/gitlabCI/"

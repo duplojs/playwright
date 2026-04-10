@@ -12,9 +12,9 @@ description: "Introduction à @duplojs/playwright, sa philosophie et sa place au
 
 L'idée n'est pas de remplacer Playwright, mais de lui ajouter un modèle plus lisible :
 
-- un [`Website`](/fr/v0/api/website/) pour porter le contexte global du test
-- des [`Page`](/fr/v0/api/page/) pour les écrans navigables
-- des [`Component`](/fr/v0/api/component/) pour les fragments d'interface réutilisables
+- un [`Website`](/fr/v0/api/website) pour porter le contexte global du test
+- des [`Page`](/fr/v0/api/page) pour les écrans navigables
+- des [`Component`](/fr/v0/api/component) pour les fragments d'interface réutilisables
 - des helpers métier pour éviter de répéter les mêmes intentions partout
 
 ## Ce que la lib apporte
@@ -41,7 +41,8 @@ Concrètement, au lieu d'avoir des sélecteurs et des helpers dispersés dans ch
 <!--@include: @/examples/v0/guide/introduction/main.ts-->
 ```
 ::: tip Ce qui se passe ici
-- [`createWebsite(...)`](/fr/v0/api/website/) crée le contexte central du test.
-- [`createPage(...)`](/fr/v0/api/page/) décrit un écran navigable.
+- le client Playwright étendu prépare [`createWebsite(...)`](/fr/v0/api/website) une fois.
+- [`createPage(...)`](/fr/v0/api/page) décrit un écran navigable.
+- le test récupère `website` depuis ce client.
 - `website.iNavigateTo(...)` permet de parler en termes de page, pas seulement en termes d'URL.
 :::

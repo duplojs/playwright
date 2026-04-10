@@ -2,7 +2,7 @@
 outline: [2, 3]
 prev:
   text: "Actions"
-  link: "/fr/v0/api/actions/"
+  link: "/fr/v0/api/actions"
 next:
   text: "Référence API"
   link: "/fr/v0/api/"
@@ -162,6 +162,6 @@ L'appel utile est ensuite chaîné sur le wrapper retourné.
 
 ## Voir aussi
 
-- [`Actions`](/fr/v0/api/actions/) - pour les interactions prêtes à l'emploi sur les composants.
-- [`Component`](/fr/v0/api/component/) - pour définir les éléments sur lesquels les assertions s'appliquent.
-- [`Component Interaction`](/fr/v0/api/componentInteraction/) - pour créer des vérifications personnalisées si les assertions fournies ne suffisent pas.
+- [`Actions`](/fr/v0/api/actions) - pour les interactions prêtes à l'emploi sur les composants.
+- [`Component`](/fr/v0/api/component) - pour définir les éléments sur lesquels les assertions s'appliquent.
+- [`Component Interaction`](/fr/v0/api/componentInteraction) - pour créer des vérifications personnalisées si les assertions fournies ne suffisent pas.

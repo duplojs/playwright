@@ -2,10 +2,10 @@
 outline: [2, 3]
 prev:
   text: "Website"
-  link: "/fr/v0/api/website/"
+  link: "/fr/v0/api/website"
 next:
   text: "Component Interaction"
-  link: "/fr/v0/api/componentInteraction/"
+  link: "/fr/v0/api/componentInteraction"
 description: "Définir un composant réutilisable avec ses éléments, ses méthodes et ses sous-composants dans @duplojs/playwright."
 ---
 
@@ -23,7 +23,7 @@ En pratique, c'est la brique de base pour éviter de répéter des sélecteurs e
 <!--@include: @/examples/v0/api/component/main.ts-->
 ```
 ::: tip Ce qui se passe ici
-- l'exemple montre un vrai setup de test, puis la définition du composant.
+- l'exemple montre un client Playwright étendu, puis la définition du composant.
 - `createComponent(...)` décrit un composant `searchForm`.
 - `getMainElement(...)` définit son élément racine.
 - `getElements(...)` expose des locators nommés réutilisables.
@@ -81,8 +81,8 @@ Autrement dit, il permet d'écrire des tests plus lisibles et plus stables quand
 
 ## Voir aussi
 
-- [`Website`](/fr/v0/api/website/) - pour instancier un composant dans un contexte de test.
-- [`Page`](/fr/v0/api/page/) - pour construire une page sur le même modèle qu'un composant, avec en plus `makePath(...)`.
-- [`Component Interaction`](/fr/v0/api/componentInteraction/) - pour créer des interactions réutilisables sur les éléments d'un composant.
-- [`Actions`](/fr/v0/api/actions/) - pour les actions prêtes à l'emploi sur les composants.
-- [`Assertions`](/fr/v0/api/assertions/) - pour les assertions prêtes à l'emploi sur les composants.
+- [`Website`](/fr/v0/api/website) - pour instancier un composant dans un contexte de test.
+- [`Page`](/fr/v0/api/page) - pour construire une page sur le même modèle qu'un composant, avec en plus `makePath(...)`.
+- [`Component Interaction`](/fr/v0/api/componentInteraction) - pour créer des interactions réutilisables sur les éléments d'un composant.
+- [`Actions`](/fr/v0/api/actions) - pour les actions prêtes à l'emploi sur les composants.
+- [`Assertions`](/fr/v0/api/assertions) - pour les assertions prêtes à l'emploi sur les composants.

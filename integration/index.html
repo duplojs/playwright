@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,18 +40,18 @@
 		<main data-page="home">
 			<header>
 				<p aria-hydrated="true">Hydrated</p>
-				<h1>Bienvenue sur le site de demo</h1>
-				<p>Une page toute simple pour tester la lib en integration.</p>
+				<h1>Welcome to the demo site</h1>
+				<p>A simple page used to test the library in integration.</p>
 			</header>
 
 			<section data-newsletter>
 				<h2>Newsletter</h2>
-				<p data-feedback>Aucun email enregistre.</p>
+				<p data-feedback>No email submitted yet.</p>
 
 				<form>
 					<label for="email">Email</label>
 					<input id="email" name="email" type="email" placeholder="john@doe.dev" />
-					<button type="button" data-submit aria-busy="false">Valider</button>
+					<button type="button" data-submit aria-busy="false">Submit</button>
 				</form>
 			</section>
 		</main>
@@ -65,15 +65,15 @@
 				submitButton.setAttribute("aria-busy", "true");
 
 				if (!emailInput?.value) {
-					feedback.textContent = "Email requis.";
+					feedback.textContent = "Email is required.";
 					submitButton.setAttribute("aria-busy", "false");
 					return;
 				}
 
-				feedback.textContent = "Inscription en cours...";
+				feedback.textContent = "Submitting subscription...";
 
 				window.setTimeout(() => {
-					feedback.textContent = `Inscription confirmee pour ${emailInput.value}`;
+					feedback.textContent = `Subscription confirmed for ${emailInput.value}`;
 					submitButton.setAttribute("aria-busy", "false");
 				}, 50);
 			});

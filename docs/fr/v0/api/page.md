@@ -2,10 +2,10 @@
 outline: [2, 3]
 prev:
   text: "Component Interaction"
-  link: "/fr/v0/api/componentInteraction/"
+  link: "/fr/v0/api/componentInteraction"
 next:
   text: "Actions"
-  link: "/fr/v0/api/actions/"
+  link: "/fr/v0/api/actions"
 description: "Définir une page navigable avec un chemin, des éléments et des méthodes réutilisables dans @duplojs/playwright."
 ---
 
@@ -22,7 +22,7 @@ En pratique, c'est la bonne abstraction quand un écran doit être à la fois na
 <!--@include: @/examples/v0/api/page/main.ts-->
 ```
 ::: tip Ce qui se passe ici
-- l'exemple montre un vrai setup de test, puis la définition de la page.
+- l'exemple montre un client Playwright étendu, puis la définition de la page.
 - `createPage(...)` décrit une page `article`.
 - `makePath(...)` construit le chemin de navigation.
 - `getMainElement(...)` définit l'élément principal de la page.
@@ -79,8 +79,8 @@ Autrement dit, il permet de naviguer vers une page puis de la manipuler avec la 
 
 ## Voir aussi
 
-- [`Website`](/fr/v0/api/website/) - pour naviguer vers une page avec `iNavigateTo(...)` ou `iGoTo(...)`.
-- [`Component`](/fr/v0/api/component/) - pour le modèle commun utilisé aussi par les pages.
-- [`Component Interaction`](/fr/v0/api/componentInteraction/) - pour créer des interactions réutilisables sur les éléments d'une page.
-- [`Actions`](/fr/v0/api/actions/) - pour les actions prêtes à l'emploi sur les éléments de la page.
-- [`Assertions`](/fr/v0/api/assertions/) - pour les assertions prêtes à l'emploi sur les éléments de la page.
+- [`Website`](/fr/v0/api/website) - pour naviguer vers une page avec `iNavigateTo(...)` ou `iGoTo(...)`.
+- [`Component`](/fr/v0/api/component) - pour le modèle commun utilisé aussi par les pages.
+- [`Component Interaction`](/fr/v0/api/componentInteraction) - pour créer des interactions réutilisables sur les éléments d'une page.
+- [`Actions`](/fr/v0/api/actions) - pour les actions prêtes à l'emploi sur les éléments de la page.
+- [`Assertions`](/fr/v0/api/assertions) - pour les assertions prêtes à l'emploi sur les éléments de la page.

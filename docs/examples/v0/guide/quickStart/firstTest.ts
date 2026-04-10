@@ -1,5 +1,23 @@
-import { Assertions, createPage, createWebsite } from "@duplojs/playwright";
+import { Assertions, createPage, createWebsite, type Website } from "@duplojs/playwright";
 import test from "playwright/test";
+
+interface TestFixtures {
+	website: Website;
+}
+
+const testClient = test.extend<TestFixtures>({
+	async website({ page, context }, use) {
+		const website = createWebsite({
+			playwrightPage: page,
+			playwrightBrowserContext: context,
+			envConfig: {
+				baseUrl: "https://example.com",
+			},
+		});
+
+		await use(website);
+	},
+});
 
 const homePage = createPage(
 	"home",
@@ -18,15 +36,7 @@ const homePage = createPage(
 	},
 );
 
-test("home page example", async({ page, context }) => {
-	const website = createWebsite({
-		playwrightPage: page,
-		playwrightBrowserContext: context,
-		envConfig: {
-			baseUrl: "https://example.com",
-		},
-	});
-
+testClient("home page", async({ website }) => {
 	// [!code highlight:3]
 	const home = await website.iNavigateTo(homePage);
 

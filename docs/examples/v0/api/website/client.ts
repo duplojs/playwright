@@ -5,7 +5,7 @@ interface TestFixtures {
 	website: Website;
 }
 
-// [!code highlight:13]
+// [!code highlight:14]
 const client = test.extend<TestFixtures>({
 	async website({ page, context }, use) {
 		const website = createWebsite({

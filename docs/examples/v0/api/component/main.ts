@@ -1,38 +1,48 @@
-import { createComponent, createWebsite } from "@duplojs/playwright";
+import { createComponent, createWebsite, type Website } from "@duplojs/playwright";
 import test from "playwright/test";
 
-test("component example", async({ page, context }) => {
-	const website = createWebsite({
-		playwrightPage: page,
-		playwrightBrowserContext: context,
-		envConfig: {
-			baseUrl: "https://example.com",
-		},
-	});
+interface TestFixtures {
+	website: Website;
+}
 
-	// [!code highlight:21]
-	const searchForm = createComponent(
-		"searchForm",
-		{
-			getMainElement({ body }) {
-				return body.locator("[data-search-form]");
+const testClient = test.extend<TestFixtures>({
+	async website({ page, context }, use) {
+		const website = createWebsite({
+			playwrightPage: page,
+			playwrightBrowserContext: context,
+			envConfig: {
+				baseUrl: "https://example.com",
 			},
-			getElements({ mainElement }) {
-				return {
-					input: mainElement.locator("input"),
-					submitButton: mainElement.locator("button[type='submit']"),
-				};
-			},
-			getMethods({ elements }) {
-				return {
-					async fillSearch(value: string) {
-						await elements.input.fill(value);
-					},
-				};
-			},
-		},
-	);
+		});
 
+		await use(website);
+	},
+});
+
+// [!code highlight:21]
+const searchForm = createComponent(
+	"searchForm",
+	{
+		getMainElement({ body }) {
+			return body.locator("[data-search-form]");
+		},
+		getElements({ mainElement }) {
+			return {
+				input: mainElement.locator("input"),
+				submitButton: mainElement.locator("button[type='submit']"),
+			};
+		},
+		getMethods({ elements }) {
+			return {
+				async fillSearch(value: string) {
+					await elements.input.fill(value);
+				},
+			};
+		},
+	},
+);
+
+testClient("component example", async({ website }) => {
 	const component = searchForm(website);
 
 	// [!code highlight:2]

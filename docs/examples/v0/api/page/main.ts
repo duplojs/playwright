@@ -1,44 +1,55 @@
-import { createComponent, createPage, createWebsite } from "@duplojs/playwright";
+import { createComponent, createPage, createWebsite, type Website } from "@duplojs/playwright";
 import test from "playwright/test";
 
-test("page example", ({ page, context }) => {
-	const website = createWebsite({
-		playwrightPage: page,
-		playwrightBrowserContext: context,
-		envConfig: {
-			baseUrl: "https://example.com",
-		},
-	});
+interface TestFixtures {
+	website: Website;
+}
 
-	const toolbar = createComponent(
-		"toolbar",
-		{
-			getMainElement({ body }) {
-				return body.locator("[data-toolbar]");
+const testClient = test.extend<TestFixtures>({
+	async website({ page, context }, use) {
+		const website = createWebsite({
+			playwrightPage: page,
+			playwrightBrowserContext: context,
+			envConfig: {
+				baseUrl: "https://example.com",
 			},
-		},
-	);
+		});
 
-	// [!code highlight:17]
-	const articlePage = createPage(
-		"article",
-		{
-			makePath({ slug }: { slug: string }) {
-				return `/articles/${slug}`;
-			},
-			getMainElement({ body }) {
-				return body.locator("main");
-			},
-			getElements({ mainElement }) {
-				return {
-					title: mainElement.locator("h1"),
-				};
-			},
-			components: [toolbar],
-		},
-	);
+		await use(website);
+	},
+});
 
+const toolbar = createComponent(
+	"toolbar",
+	{
+		getMainElement({ body }) {
+			return body.locator("[data-toolbar]");
+		},
+	},
+);
+
+// [!code highlight:17]
+const articlePage = createPage(
+	"article",
+	{
+		makePath({ slug }: { slug: string }) {
+			return `/articles/${slug}`;
+		},
+		getMainElement({ body }) {
+			return body.locator("main");
+		},
+		getElements({ mainElement }) {
+			return {
+				title: mainElement.locator("h1"),
+			};
+		},
+		components: [toolbar],
+	},
+);
+
+testClient("page example", ({ website }) => {
 	const article = articlePage(website);
 	// [!code highlight:2]
 	const path = article.makePath({ slug: "typed-pages" });
+	void path;
 });

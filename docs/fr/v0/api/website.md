@@ -5,7 +5,7 @@ prev:
   link: "/fr/v0/api/"
 next:
   text: "Component"
-  link: "/fr/v0/api/component/"
+  link: "/fr/v0/api/component"
 description: "Créer le contexte Website central pour naviguer, vérifier des pages et utiliser les helpers partagés de @duplojs/playwright."
 ---
 
@@ -14,24 +14,9 @@ description: "Créer le contexte Website central pour naviguer, vérifier des pa
 `createWebsite` crée l'objet central utilisé pendant un test d'intégration.  
 Il relie une `Page` Playwright, un `BrowserContext`, la configuration d'environnement et plusieurs helpers de navigation ou d'assertion dans une seule interface.
 
-En pratique, c'est souvent le point d'entrée principal d'un scénario de test.
+En pratique, il est pensé pour être préparé dans un client Playwright étendu, puis injecté dans les tests.
 
-## Approche 1: test direct
-
-```ts twoslash
-// @version: 0
-<!--@include: @/examples/v0/api/website/direct.ts-->
-```
-::: tip Ce qui se passe ici
-- `createPage(...)` décrit une page navigable avec son chemin et son élément principal.
-- `createWebsite(...)` assemble le contexte Playwright et la configuration d'URL.
-- `website.iNavigateTo(...)` construit l'URL finale, ouvre la page, vérifie l'URL puis vérifie que la page est visible.
-- `website.iExpectTitleIs(...)` et `website.iWantToBeOnPage(...)` montrent le rôle du `Website`: centraliser les actions et vérifications les plus fréquentes.
-:::
-
-Cette approche est pratique quand le setup reste simple ou très local au test.
-
-## Approche 2: client Playwright étendu
+## Exemple simple
 
 ```ts twoslash
 // @version: 0
@@ -40,11 +25,12 @@ Cette approche est pratique quand le setup reste simple ou très local au test.
 ::: tip Ce qui se passe ici
 - le `Website` est préparé une fois dans un fixture Playwright personnalisé
 - chaque test récupère directement `website` depuis le client
-- on pense plus facilement en mode spec: le `describe(...)` porte la spec, les tests internes couvrent ses cas
+- `createPage(...)` décrit une page navigable avec son chemin et son élément principal
+- `website.iNavigateTo(...)` construit l'URL finale, ouvre la page, vérifie l'URL puis vérifie que la page est visible
+- `website.iExpectTitleIs(...)` et `website.iWantToBeOnPage(...)` montrent le rôle du `Website`: centraliser les actions et vérifications les plus fréquentes
 :::
 
-Cette approche est utile quand un même site est utilisé partout dans la suite de tests.  
-Elle évite de reconstruire le `Website` dans chaque test et pousse naturellement vers une organisation par spec.
+Le `Website` est préparé une fois, puis réutilisé dans les tests via le client Playwright étendu.
 
 ## Paramètres
 
@@ -100,15 +86,10 @@ interface Website {
 
 Autrement dit, il joue le rôle de façade de haut niveau pour piloter un site dans un test.
 
-## Quelle approche choisir ?
-
-- approche directe: bien pour démarrer ou pour un test isolé
-- client étendu: bien quand tout le projet cible un seul site et que tu veux structurer tes tests par spec
-
 ## Voir aussi
 
-- [`Component`](/fr/v0/api/component/) - pour définir des fragments réutilisables de page.
-- [`Page`](/fr/v0/api/page/) - pour définir une page navigable avec `makePath(...)`.
-- [`Component Interaction`](/fr/v0/api/componentInteraction/) - pour créer des interactions réutilisables sur les éléments d'un composant.
-- [`Actions`](/fr/v0/api/actions/) - pour les actions prêtes à l'emploi sur les composants.
-- [`Assertions`](/fr/v0/api/assertions/) - pour les assertions prêtes à l'emploi sur les composants.
+- [`Component`](/fr/v0/api/component) - pour définir des fragments réutilisables de page.
+- [`Page`](/fr/v0/api/page) - pour définir une page navigable avec `makePath(...)`.
+- [`Component Interaction`](/fr/v0/api/componentInteraction) - pour créer des interactions réutilisables sur les éléments d'un composant.
+- [`Actions`](/fr/v0/api/actions) - pour les actions prêtes à l'emploi sur les composants.
+- [`Assertions`](/fr/v0/api/assertions) - pour les assertions prêtes à l'emploi sur les composants.

@@ -2,10 +2,10 @@
 outline: [2, 3]
 prev:
   text: "Page"
-  link: "/fr/v0/api/page/"
+  link: "/fr/v0/api/page"
 next:
   text: "Assertions"
-  link: "/fr/v0/api/assertions/"
+  link: "/fr/v0/api/assertions"
 description: "Vue d'ensemble des actions prêtes à l'emploi fournies par Actions dans @duplojs/playwright."
 ---
 
@@ -151,6 +151,6 @@ L'appel utile est ensuite chaîné sur le wrapper retourné.
 
 ## Voir aussi
 
-- [`Assertions`](/fr/v0/api/assertions/) - pour les vérifications prêtes à l'emploi sur les composants.
-- [`Component`](/fr/v0/api/component/) - pour définir les éléments sur lesquels les actions s'appliquent.
-- [`Component Interaction`](/fr/v0/api/componentInteraction/) - pour créer des interactions personnalisées si les actions fournies ne suffisent pas.
+- [`Assertions`](/fr/v0/api/assertions) - pour les vérifications prêtes à l'emploi sur les composants.
+- [`Component`](/fr/v0/api/component) - pour définir les éléments sur lesquels les actions s'appliquent.
+- [`Component Interaction`](/fr/v0/api/componentInteraction) - pour créer des interactions personnalisées si les actions fournies ne suffisent pas.
