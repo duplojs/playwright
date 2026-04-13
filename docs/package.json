@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@shikijs/vitepress-twoslash": "3.21.0",
+    "@types/web": "^0.0.344",
     "@vue/tsconfig": "0.8.1",
     "vitepress": "^2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "1.7.1",
