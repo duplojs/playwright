@@ -40,6 +40,5 @@ client.describe("dashboard spec", () => {
 
 		await website.iExpectTitleIs("Dashboard");
 		await website.iWantToBeOnPage(dashboardPage);
-		await dashboard.mainElement.isVisible();
 	});
 });

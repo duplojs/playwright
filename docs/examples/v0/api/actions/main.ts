@@ -35,7 +35,7 @@ const searchForm = createComponent(
 );
 
 testClient("actions example", async({ website }) => {
-	const component = searchForm(website);
+	const component = await website.iWantToSee(searchForm);
 
 	// [!code highlight:2]
 	await Actions.fill(component, "query", "duplojs");

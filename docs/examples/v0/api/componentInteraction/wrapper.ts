@@ -1,4 +1,5 @@
-import { Actions, createComponentInteraction, createStepWrapper } from "@duplojs/playwright";
+import { Actions, type Component, createComponentInteraction, createStepWrapper } from "@duplojs/playwright";
+import { type Locator } from "playwright";
 
 const submitSearch = createComponentInteraction(
 	"$component: I submit $element.",
@@ -13,7 +14,10 @@ const searchStep = createStepWrapper({
 	submit: submitSearch,
 });
 
-declare const component: Parameters<typeof submitSearch>[0];
+declare const component: Component<"", {
+	query: Locator;
+	submit: Locator;
+}>;
 
 // [!code highlight:2]
 await searchStep("search flow").fillQuery(component, "query", "duplojs");

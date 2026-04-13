@@ -35,7 +35,7 @@ const searchForm = createComponent(
 );
 
 testClient("assertions example", async({ website }) => {
-	const component = searchForm(website);
+	const component = await website.iWantToSee(searchForm);
 
 	// [!code highlight:2]
 	await Assertions.toHaveValue(component, "query", "duplojs");

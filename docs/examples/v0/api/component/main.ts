@@ -1,4 +1,4 @@
-import { createComponent, createWebsite, type Website } from "@duplojs/playwright";
+import { Actions, createComponent, createWebsite, type Website } from "@duplojs/playwright";
 import test from "playwright/test";
 
 interface TestFixtures {
@@ -47,5 +47,5 @@ testClient("component example", async({ website }) => {
 
 	// [!code highlight:2]
 	await component.methods.fillSearch("duplojs");
-	await component.elements.submitButton.click();
+	await Actions.click(component, "submitButton");
 });

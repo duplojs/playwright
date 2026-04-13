@@ -47,9 +47,8 @@ const articlePage = createPage(
 	},
 );
 
-testClient("page example", ({ website }) => {
-	const article = articlePage(website);
-	// [!code highlight:2]
-	const path = article.makePath({ slug: "typed-pages" });
-	void path;
+testClient("page example", async({ website }) => {
+	const article = await website.iNavigateTo(articlePage, { slug: "articleId" });
+
+	const toolbar = await article.iWantToSeeComponent("toolbar");
 });

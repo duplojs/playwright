@@ -43,7 +43,7 @@ const submitSearch = createComponentInteraction(
 );
 
 testClient("component interaction example", async({ website }) => {
-	const component = searchForm(website);
+	const component = await website.iWantToSee(searchForm);
 
 	// [!code highlight:1]
 	await submitSearch(component, "submit");
