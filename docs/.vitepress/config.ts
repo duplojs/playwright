@@ -315,11 +315,11 @@ export default defineConfig({
 									items: [
 										{
 											text: "GitHub Actions",
-											link: "/fr/v0/guide/ci/githubActions",
+											link: "/en/v0/guide/ci/githubActions",
 										},
 										{
 											text: "GitLab CI",
-											link: "/fr/v0/guide/ci/gitlabCI",
+											link: "/en/v0/guide/ci/gitlabCI",
 										},
 									],
 								},
