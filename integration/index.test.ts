@@ -76,7 +76,7 @@ testClient.describe("integration", () => {
 		const home = await website.iNavigateTo(homePage);
 		await website.iWantToBeOnPage(homePage);
 		await website.iExpectTitleIs("Integration playground");
-		await Assertions.toHaveText(home, "title", "Welcome to the demo site");
+		await Assertions.toHaveText(home, ["title", "first"], "Welcome to the demo site");
 		await website.waitForHydration();
 
 		const newsletter = await home.iWantToSeeComponent("newsletter");
