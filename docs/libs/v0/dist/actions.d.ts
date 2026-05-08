@@ -65,7 +65,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const click: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const click: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Force a click on a declared component element.
      * 
@@ -93,7 +93,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const forceClick: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const forceClick: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Hover a declared component element.
      * 
@@ -121,7 +121,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const hover: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const hover: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Focus a declared component element.
      * 
@@ -149,7 +149,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const focus: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const focus: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Fill a declared component element with text.
      * 
@@ -177,7 +177,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const fill: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, content: string) => Promise<any>;
+    const fill: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, content: string) => Promise<any>;
     /**
      * Type text sequentially into a declared component element.
      * 
@@ -205,7 +205,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const type: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string, options?: {
+    const type: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string, options?: {
         delay?: number;
         noWaitAfter?: boolean;
         timeout?: number;
@@ -237,7 +237,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const clear: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const clear: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Press a keyboard key on a declared component element.
      * 
@@ -265,7 +265,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const press: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, key: string) => Promise<any>;
+    const press: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, key: string) => Promise<any>;
     /**
      * Check a declared component element.
      * 
@@ -293,7 +293,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const check: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const check: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Uncheck a declared component element.
      * 
@@ -321,7 +321,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const uncheck: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const uncheck: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Select one or more options on a declared component element.
      * 
@@ -349,7 +349,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const selectOption: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, values: string | import("playwright-core").ElementHandle<Node> | readonly string[] | {
+    const selectOption: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, values: string | import("playwright-core").ElementHandle<Node> | readonly string[] | {
         value?: string;
         label?: string;
         index?: number;
@@ -386,7 +386,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const dragTo: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, target: PlaywrightLocator, options?: {
+    const dragTo: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, target: PlaywrightLocator, options?: {
         force?: boolean;
         noWaitAfter?: boolean;
         sourcePosition?: {
@@ -428,7 +428,7 @@ export declare namespace Actions {
      * @namespace Actions
      * 
      */
-    const extractContent: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const extractContent: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Wrap `Actions` helpers under a custom Playwright step.
      * 
@@ -459,21 +459,21 @@ export declare namespace Actions {
      * 
      */
     const withStep: (stepName: string) => {
-        click: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        forceClick: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        hover: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        focus: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        fill: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, content: string) => Promise<any>;
-        type: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string, options?: {
+        click: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        forceClick: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        hover: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        focus: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        fill: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, content: string) => Promise<any>;
+        type: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string, options?: {
             delay?: number;
             noWaitAfter?: boolean;
             timeout?: number;
         } | undefined) => Promise<any>;
-        clear: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        press: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, key: string) => Promise<any>;
-        check: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        uncheck: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        selectOption: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, values: string | import("playwright-core").ElementHandle<Node> | readonly string[] | {
+        clear: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        press: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, key: string) => Promise<any>;
+        check: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        uncheck: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        selectOption: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, values: string | import("playwright-core").ElementHandle<Node> | readonly string[] | {
             value?: string;
             label?: string;
             index?: number;
@@ -482,7 +482,7 @@ export declare namespace Actions {
             label?: string;
             index?: number;
         }[] | null) => Promise<any>;
-        dragTo: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, target: PlaywrightLocator, options?: {
+        dragTo: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, target: PlaywrightLocator, options?: {
             force?: boolean;
             noWaitAfter?: boolean;
             sourcePosition?: {
@@ -497,6 +497,6 @@ export declare namespace Actions {
             timeout?: number;
             trial?: boolean;
         } | undefined) => Promise<any>;
-        extractContent: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+        extractContent: <GenericComponent extends import("./component").Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     };
 }

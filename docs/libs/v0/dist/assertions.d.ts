@@ -64,7 +64,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeVisible: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeVisible: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element has the expected text.
      * 
@@ -92,7 +92,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string | RegExp) => Promise<any>;
+    const toHaveText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string | RegExp) => Promise<any>;
     /**
      * Assert that a declared component element contains the expected text.
      * 
@@ -120,7 +120,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toContainText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string | RegExp) => Promise<any>;
+    const toContainText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string | RegExp) => Promise<any>;
     /**
      * Assert that a declared component element has no text.
      * 
@@ -148,7 +148,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveNoText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toHaveNoText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element is hidden.
      * 
@@ -176,7 +176,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeHidden: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeHidden: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert the number of matched elements for a declared component entry.
      * 
@@ -207,7 +207,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveQuantity: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, args_0: {
+    const toHaveQuantity: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, args_0: {
         quantity: number;
         operator?: "lte" | "gte" | "e";
     }) => Promise<any>;
@@ -238,7 +238,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeEnabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeEnabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element is checked.
      * 
@@ -266,7 +266,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeChecked: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeChecked: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element is disabled.
      * 
@@ -294,7 +294,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeDisabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeDisabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element has an attribute.
      * 
@@ -322,7 +322,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveAttribute: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, name: string, value?: string | RegExp | undefined) => Promise<any>;
+    const toHaveAttribute: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, name: string, value?: string | RegExp | undefined) => Promise<any>;
     /**
      * Assert that a declared component element has the expected class value.
      * 
@@ -350,7 +350,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveClass: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, value: string | RegExp) => Promise<any>;
+    const toHaveClass: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, value: string | RegExp) => Promise<any>;
     /**
      * Assert that a declared component element has the expected value.
      * 
@@ -378,7 +378,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toHaveValue: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, value: string | RegExp) => Promise<any>;
+    const toHaveValue: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, value: string | RegExp) => Promise<any>;
     /**
      * Assert that a declared component element is busy.
      * 
@@ -406,7 +406,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Assert that a declared component element is not busy.
      * 
@@ -434,7 +434,7 @@ export declare namespace Assertions {
      * @namespace Assertions
      * 
      */
-    const toBeNotBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+    const toBeNotBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     /**
      * Wrap `Assertions` helpers under a custom Playwright step.
      * 
@@ -465,22 +465,22 @@ export declare namespace Assertions {
      * 
      */
     const withStep: (stepName: string) => {
-        toBeVisible: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toHaveText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string | RegExp) => Promise<any>;
-        toContainText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, text: string | RegExp) => Promise<any>;
-        toHaveNoText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toBeHidden: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toHaveQuantity: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, args_0: {
+        toBeVisible: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toHaveText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string | RegExp) => Promise<any>;
+        toContainText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, text: string | RegExp) => Promise<any>;
+        toHaveNoText: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toBeHidden: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toHaveQuantity: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, args_0: {
             quantity: number;
             operator?: "lte" | "gte" | "e";
         }) => Promise<any>;
-        toBeEnabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toBeChecked: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toBeDisabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toHaveAttribute: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, name: string, value?: string | RegExp | undefined) => Promise<any>;
-        toHaveClass: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, value: string | RegExp) => Promise<any>;
-        toHaveValue: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, value: string | RegExp) => Promise<any>;
-        toBeBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
-        toBeNotBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey) => Promise<any>;
+        toBeEnabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toBeChecked: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toBeDisabled: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toHaveAttribute: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, name: string, value?: string | RegExp | undefined) => Promise<any>;
+        toHaveClass: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, value: string | RegExp) => Promise<any>;
+        toHaveValue: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey, value: string | RegExp) => Promise<any>;
+        toBeBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
+        toBeNotBusy: <GenericComponent extends import("./component").Component<string, Record<string, import("playwright-core").Locator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string> | import("./componentInteraction").ElementsSelector<Extract<keyof GenericComponent["elements"], string>>>(component: GenericComponent, elementSelector: GenericElementKey) => Promise<any>;
     };
 }

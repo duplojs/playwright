@@ -11,6 +11,10 @@ interface MissingComponentElementErrorParams {
     elementKey: string;
     availableElements: string[];
 }
+export type ElementsSelector<GenericElementKey extends string> = [
+    element: GenericElementKey,
+    target: number | "first" | "last"
+];
 declare const MissingComponentElementError_base: new (params: {
     "@DuplojsPlaywright/missing-component-element-error"?: unknown;
 }, parentParams: readonly [message?: string | undefined, options?: ErrorOptions | undefined]) => import("@duplojs/utils").Kind<import("@duplojs/utils").KindDefinition<"@DuplojsPlaywright/missing-component-element-error", unknown>, unknown> & import("@duplojs/utils").Kind<import("@duplojs/utils").KindDefinition<"missing-component-element-error", unknown>, unknown> & Error;
@@ -66,7 +70,7 @@ export declare class MissingComponentElementError extends MissingComponentElemen
  * @see [`createComponent`](https://playwright.duplojs.dev/en/v0/api/component) To define the component shape consumed by the interaction.
  * 
  */
-export declare function createComponentInteraction<GenericStepEmbeddedFunction extends StepEmbeddedFunction>(stepName: string, step: GenericStepEmbeddedFunction): <GenericComponent extends Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends Extract<keyof GenericComponent["elements"], string>>(component: GenericComponent, elementKey: GenericElementKey, ...args: Parameters<GenericStepEmbeddedFunction> extends [any, ...infer InferredRest] ? InferredRest : never) => Promise<any>;
+export declare function createComponentInteraction<GenericStepEmbeddedFunction extends StepEmbeddedFunction>(stepName: string, step: GenericStepEmbeddedFunction): <GenericComponent extends Component<string, Record<string, PlaywrightLocator>, any, any>, GenericElementKey extends (Extract<keyof GenericComponent["elements"], string> | ElementsSelector<Extract<keyof GenericComponent["elements"], string>>)>(component: GenericComponent, elementSelector: GenericElementKey, ...args: Parameters<GenericStepEmbeddedFunction> extends [any, ...infer InferredRest] ? InferredRest : never) => Promise<any>;
 export type WrapperStepEmbeddedFunction = Record<string, ReturnType<typeof createComponentInteraction>>;
 /**
  * Create a step wrapper that groups existing component interactions under a custom Playwright step.

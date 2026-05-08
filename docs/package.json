@@ -8,6 +8,7 @@
     "test:types": "tsc -p tsconfig.app.json && tsc -p tsconfig.v0.json"
   },
   "devDependencies": {
+    "@playwright/v0": "file:libs/v0",
     "@shikijs/vitepress-twoslash": "3.21.0",
     "@types/web": "^0.0.344",
     "@vue/tsconfig": "0.8.1",

@@ -1,4 +1,4 @@
-import { Actions, createComponent, createPage, createWebsite, type Website } from "@duplojs/playwright";
+import { Actions, createComponent, createPage, createWebsite, type Website } from "@playwright/v0";
 import test from "playwright/test";
 
 interface TestFixtures {

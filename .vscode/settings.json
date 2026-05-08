@@ -20,5 +20,8 @@
 	},
 	
 	"js/ts.tsdk.path": "node_modules/typescript/lib",
-	"js/ts.updateImportsOnFileMove.enabled": "prompt"
+	"js/ts.updateImportsOnFileMove.enabled": "prompt",
+	"cSpell.words": [
+		"shikijs"
+	]
 }

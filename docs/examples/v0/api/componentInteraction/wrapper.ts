@@ -1,4 +1,4 @@
-import { Actions, type Component, createComponentInteraction, createStepWrapper } from "@duplojs/playwright";
+import { Actions, type Component, createComponentInteraction, createStepWrapper } from "@playwright/v0";
 import { type Locator } from "playwright";
 
 const submitSearch = createComponentInteraction(

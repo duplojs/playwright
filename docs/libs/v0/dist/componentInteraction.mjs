@@ -1,5 +1,5 @@
 import test from 'playwright/test';
-import { kindHeritage } from '@duplojs/utils';
+import { kindHeritage, justExec } from '@duplojs/utils';
 import { createDuplojsPlaywrightKind } from './kind.mjs';
 
 const missingComponentElementErrorKind = createDuplojsPlaywrightKind("missing-component-element-error");
@@ -21,18 +21,35 @@ class MissingComponentElementError extends kindHeritage("missing-component-eleme
  * {@include createComponentInteraction/index.md}
  */
 function createComponentInteraction(stepName, step) {
-    return (component, elementKey, ...args) => {
-        const element = component.elements?.[elementKey];
-        if (!element) {
-            throw new MissingComponentElementError({
-                componentName: component.name,
-                elementKey: elementKey.toString(),
-                availableElements: Object.keys(component.elements ?? {}),
-            });
-        }
+    return (component, elementSelector, ...args) => {
+        const [elementKey, elementDesignation] = typeof elementSelector === "string"
+            ? [elementSelector, elementSelector]
+            : [elementSelector[0], `${elementSelector[0]}::${elementSelector[1]}`];
+        const element = justExec(() => {
+            const selectedElement = component.elements?.[elementKey];
+            if (!selectedElement) {
+                throw new MissingComponentElementError({
+                    componentName: component.name,
+                    elementKey: elementKey.toString(),
+                    availableElements: Object.keys(component.elements ?? {}),
+                });
+            }
+            else if (typeof elementSelector === "string") {
+                return selectedElement;
+            }
+            else if (elementSelector[1] === "first") {
+                return selectedElement.first();
+            }
+            else if (elementSelector[1] === "last") {
+                return selectedElement.last();
+            }
+            else {
+                return selectedElement.nth(elementSelector[1]);
+            }
+        });
         return test.step(stepName
             .replace("$component", component.name)
-            .replace("$element", elementKey.toString()), () => step({
+            .replace("$element", elementDesignation), () => step({
             element,
             component,
             elementKey,
