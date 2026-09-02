@@ -1,12 +1,5 @@
-import { createKindNamespace } from "@duplojs/utils";
+import * as DKind from "@duplojs/lang/kind";
 
-declare module "@duplojs/utils" {
-	interface ReservedKindNamespace {
-		DuplojsPlaywright: true;
-	}
-}
-
-export const createDuplojsPlaywrightKind = createKindNamespace(
-	// @ts-expect-error reserved kind namespace
+export const createKind = DKind.createNamespace(
 	"DuplojsPlaywright",
 );

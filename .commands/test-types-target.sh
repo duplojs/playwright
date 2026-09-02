@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-oxlint --quiet "$@"
+tscw "$@" -p tsconfig.test.json

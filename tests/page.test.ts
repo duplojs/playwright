@@ -1,9 +1,8 @@
 import type { Locator as PlaywrightLocator } from "playwright/test";
-import { createPage, type Website } from "@scripts";
-import { createDuplojsPlaywrightKind } from "@scripts/kind";
+import { createPage, type Website, createKind } from "@scripts";
 
-const componentKind = createDuplojsPlaywrightKind("component");
-const pageKind = createDuplojsPlaywrightKind("page");
+const componentKind = createKind("component");
+const pageKind = createKind("page");
 
 function createLocatorMock() {
 	return {

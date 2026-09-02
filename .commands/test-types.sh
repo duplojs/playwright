@@ -1,8 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-tsc -p tsconfig.test.json
-
-# docs
-npm -w docs run test:types
+tsc -p tsconfig.test.json "$@"

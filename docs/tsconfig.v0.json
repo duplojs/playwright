@@ -1,7 +1,6 @@
 {
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
-	"baseUrl": "./",
 	"types": ["web"]
   },
   "include": ["examples/v0/**/*.ts", "libs/v0/**/*.d.ts"],

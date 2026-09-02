@@ -1,3 +1,4 @@
+export * from "./kind";
 export * from "./component";
 export * from "./componentInteraction";
 export * from "./page";

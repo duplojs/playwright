@@ -1,10 +1,11 @@
 import test, { type BrowserContext as PlaywrightBrowserContext, expect, type Page as PlaywrightPage } from "playwright/test";
 import type { createComponent } from "./component";
 import type { PageEngine } from "./page";
-import { type RemoveKind, type Kind, type MaybePromise } from "@duplojs/utils";
-import { createDuplojsPlaywrightKind } from "./kind";
+import type * as DKind from "@duplojs/lang/kind";
+import type * as DCommon from "@duplojs/lang/common";
+import { createKind } from "./kind";
 
-const webSiteKind = createDuplojsPlaywrightKind("web-site");
+const webSiteKind = createKind("web-site");
 
 type PageOf<
 	GenericPageEngine extends PageEngine<any, any, any, any, any>,
@@ -14,7 +15,7 @@ type PageArgs<
 	GenericPageEngine extends PageEngine<any, any, any, any, any>,
 > = Parameters<PageOf<GenericPageEngine>["makePath"]>;
 
-export interface Website extends Kind<typeof webSiteKind.definition> {
+export interface Website extends DKind.Kind<typeof webSiteKind> {
 	playwrightPage: PlaywrightPage;
 	iNavigateTo<
 		GenericPageEngine extends PageEngine<any, any, any, any, any>,
@@ -52,8 +53,8 @@ export interface Website extends Kind<typeof webSiteKind.definition> {
 }
 
 export interface WebsiteHooks {
-	beforeNavigateOnPage?(): MaybePromise<void>;
-	afterNavigateOnPage?(): MaybePromise<void>;
+	beforeNavigateOnPage?(): DCommon.MaybePromise<void>;
+	afterNavigateOnPage?(): DCommon.MaybePromise<void>;
 }
 
 export interface EnvConfig {
@@ -68,9 +69,6 @@ export interface CreateWebsiteParams {
 	hooks?: WebsiteHooks;
 }
 
-/**
- * {@include createWebsite/index.md}
- */
 export function createWebsite(params: CreateWebsiteParams) {
 	let prefix = params.envConfig.prefix;
 
@@ -205,7 +203,8 @@ export function createWebsite(params: CreateWebsiteParams) {
 					});
 				});
 			},
-		} satisfies RemoveKind<Website>,
+		} satisfies DKind.Remove<Website>,
+		undefined,
 	);
 
 	return website;

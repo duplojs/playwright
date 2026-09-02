@@ -1,8 +1,9 @@
 
 import test, { type Locator as PlaywrightLocator } from "playwright/test";
 import type { Component, ComponentElements } from "./component";
-import { justExec, kindHeritage } from "@duplojs/utils";
-import { createDuplojsPlaywrightKind } from "./kind";
+import * as DKind from "@duplojs/lang/kind";
+import * as DCommon from "@duplojs/lang/common";
+import { createKind } from "./kind";
 
 interface ContextStepEmbedded {
 	component: Component<string, ComponentElements>;
@@ -25,10 +26,9 @@ export type ElementsSelector<
 	target: number | "first" | "last",
 ];
 
-const missingComponentElementErrorKind = createDuplojsPlaywrightKind("missing-component-element-error");
+const missingComponentElementErrorKind = createKind("missing-component-element-error");
 
-export class MissingComponentElementError extends kindHeritage(
-	"missing-component-element-error",
+export class MissingComponentElementError extends DKind.parentClass(
 	missingComponentElementErrorKind,
 	Error,
 ) {
@@ -40,18 +40,13 @@ export class MissingComponentElementError extends kindHeritage(
 				[missingComponentElementErrorKind.definition.name]: params,
 			},
 			[
-				[
-					`Missing element "${params.elementKey}" on component "${params.componentName}".`,
-					`Available elements: ${params.availableElements.join(", ") || "none"}.`,
-				].join(" "),
-			],
+				`Missing element "${params.elementKey}" on component "${params.componentName}".`,
+				`Available elements: ${params.availableElements.join(", ") || "none"}.`,
+			].join(" "),
 		);
 	}
 }
 
-/**
- * {@include createComponentInteraction/index.md}
- */
 export function createComponentInteraction<
 	GenericStepEmbeddedFunction extends StepEmbeddedFunction,
 >(
@@ -73,7 +68,7 @@ export function createComponentInteraction<
 			? [elementSelector, elementSelector]
 			: [elementSelector[0], `${elementSelector[0]}::${elementSelector[1]}`];
 
-		const element = justExec(() => {
+		const element = DCommon.justExec(() => {
 			const selectedElement = component.elements?.[elementKey];
 
 			if (!selectedElement) {
@@ -111,9 +106,6 @@ export function createComponentInteraction<
 
 export type WrapperStepEmbeddedFunction = Record<string, ReturnType<typeof createComponentInteraction>>;
 
-/**
- * {@include createStepWrapper/index.md}
- */
 export function createStepWrapper<
 	GenericWrapperStepEmbeddedFunction extends WrapperStepEmbeddedFunction,
 >(

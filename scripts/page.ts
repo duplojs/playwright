@@ -1,10 +1,10 @@
 import type { Locator as PlaywrightLocator } from "playwright/test";
-import type { Kind } from "@duplojs/utils";
+import type * as DKind from "@duplojs/lang/kind";
 import { type ComponentEngine, type ComponentMethods, type GetComponentMethodsParams, type GetComponentElementsParams, type GetComponentMainElementParams, createComponent, type ComponentElements, type Component } from "./component";
 import type { Website } from "./website";
-import { createDuplojsPlaywrightKind } from "./kind";
+import { createKind } from "./kind";
 
-const pageKind = createDuplojsPlaywrightKind("page");
+const pageKind = createKind("page");
 
 export interface PageEngine<
 	GenericName extends string = string,
@@ -37,7 +37,7 @@ type _Page<
 		GenericMethods,
 		GenericComponent
 	>
-	& Kind<typeof pageKind.definition, GenericName>
+	& DKind.Kind<typeof pageKind, GenericName>
 );
 
 export interface Page<
@@ -59,9 +59,6 @@ export interface Page<
 	): string;
 }
 
-/**
- * {@include createPage/index.md}
- */
 export function createPage<
 	GenericName extends string,
 	GenericMakePath extends(...args: any[]) => string,

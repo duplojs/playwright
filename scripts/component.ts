@@ -1,7 +1,7 @@
 import test, { expect, type Locator as PlaywrightLocator } from "playwright/test";
 import type { Website } from "./website";
-import { createDuplojsPlaywrightKind } from "./kind";
-import type { Kind, RemoveKind } from "@duplojs/utils";
+import { createKind } from "./kind";
+import type * as DKind from "@duplojs/lang/kind";
 
 export type ComponentElements = Record<string, PlaywrightLocator>;
 
@@ -18,14 +18,14 @@ type FormatComponent<
 	[Component in GenericComponent as Component["componentName"]]: Component
 };
 
-const componentKind = createDuplojsPlaywrightKind("component");
+const componentKind = createKind("component");
 
 export interface Component<
 	GenericName extends string = string,
 	GenericElements extends ComponentElements | undefined = ComponentElements | undefined,
 	GenericMethods extends ComponentMethods | undefined = undefined,
 	GenericComponent extends ComponentEngine = never,
-> extends Kind<typeof componentKind.definition, GenericName> {
+> extends DKind.Kind<typeof componentKind, GenericName> {
 	name: GenericName;
 	get mainElement(): PlaywrightLocator;
 	elements: GenericElements;
@@ -56,9 +56,6 @@ export interface GetComponentMethodsParams<
 	website: Website;
 }
 
-/**
- * {@include createComponent/index.md}
- */
 export function createComponent<
 	GenericName extends string,
 	GenericElements extends ComponentElements | undefined = undefined,
@@ -120,7 +117,7 @@ export function createComponent<
 
 					return component;
 				},
-			} satisfies Record<keyof RemoveKind<Component>, any>,
+			} satisfies Record<keyof DKind.Remove<Component>, any>,
 			name,
 		) as never;
 	}

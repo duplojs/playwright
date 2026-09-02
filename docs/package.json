@@ -9,11 +9,12 @@
   },
   "devDependencies": {
     "@playwright/v0": "file:libs/v0",
-    "@shikijs/vitepress-twoslash": "3.21.0",
-    "@types/web": "^0.0.344",
-    "@vue/tsconfig": "0.8.1",
+    "@shikijs/vitepress-twoslash": "4.4.3",
+    "@types/web": "0.0.354",
+    "@vue/tsconfig": "0.9.1",
+    "typescript": "6.0.2",
     "vitepress": "^2.0.0-alpha.15",
     "vitepress-plugin-group-icons": "1.7.1",
-    "vue": "3.5.27"
+    "vue": "3.5.42"
   }
 }

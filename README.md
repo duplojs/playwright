@@ -8,5 +8,5 @@
 ## Install
 
 ```bash
-npm i @duplojs/playwright@0 @duplojs/utils@1
+npm i @duplojs/playwright
 ```

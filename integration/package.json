@@ -1,8 +1,0 @@
-{
-  "name": "integration",
-  "type": "module",
-  "dependencies": {
-    "@duplojs/playwright": "file:..",
-    "@duplojs/server-utils": "0.2.3"
-  }
-}
